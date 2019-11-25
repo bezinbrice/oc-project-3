@@ -3,17 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <link rel="stylesheet" href="../css/style.css"/>
     <title>Location de vélo</title>
 </head>
 <body>
-    <div id="map">
-       
-        
+    <div id="total-page">
+        <header>
+            <img class="chevrons" id="chevrons-left" src="../assets/chevron-left.png" />
+            <div id="slider-container">
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Bienvenue cher visiteur(e) !</p>
+                        <p>Vous désirez louer un vélo ?</p>
+                        <p>On vous explique tout !</p>
+                    </div>
+                    <img src="../assets/img1.jpg" class="slider-container--img" alt="Jeune fille à vélo" />
+                </div>
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Sélectionnez sur la carte le lieux de reservation que vous desirez</p>
+                    </div>
+                    <img src="../assets/img2.png" class="slider-container--img" alt="Carte de réservation" />
+                </div>
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Vérifiez bien l'état de la station</p>
+                        <p>La station est peut être fermé ou n'a plus de vélo disponible</p>
+                    </div>
+                    <img src="../assets/img3.jpg" class="slider-container--img" alt="Vélos stationner sur le bord de la route" />
+                </div>
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Renseignez votre nom et prénom</p>
+                        <p>Sans oublier de signer ! :)</p>
+                    </div>
+                    <img src="../assets/img4.png" class="slider-container--img" alt="Formulaire de réservation" />
+                </div>
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Votre vélo est réservé !</p>
+                        <p>Vous avez 20 min pour venir le récupérer sinon votre réservation est annulée !</p>
+                    </div>
+                    <img src="../assets/img5.jpg" class="slider-container--img" alt="Jeune homme fonçant en vélo" />
+                </div>
+                <div class="slider-container--block">
+                    <div class="slider-container--block--texts">
+                        <p>Bonne route à vous !</p>
+                    </div>
+                    <img src="../assets/img6.jpg" class="slider-container--img" alt="Nombreux vélos" />
+                </div>
+            </div>
+            <img class="chevrons" id="chevrons-right" src="../assets/chevron-right.png" />
+        </header>
+        <div id="map"></div>
     </div>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
-    <script src="../js/scripts.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/slider.js"></script>
 </body>
 </html>
