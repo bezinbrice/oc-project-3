@@ -1,4 +1,127 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#page-totale{
+    width:100%;
+    overflow: hidden;
+}
+
+header{
+    width:100%;
+    position: relative;
+    margin: 1%;
+}
+
+.header-chevron{
+    width: 3.5%;
+    position: absolute;
+    top: 43%;
+    z-index: 100;
+    transition: opacity, 1s linear;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+.header-chevron:hover{
+    opacity: 1;
+}
+
+#header-chevron-left{
+    left:1%;
+}
+
+#header-chevron-right{
+    right:1%;
+}
+
+#diaporama{
+    width:600%;
+    position: relative;
+	top: 0px;
+	left: 0px;
+    overflow: hidden;
+    display: flex;
+    transition: all 1s ease-out;
+}
+
+.diaporama-bloc{
+    width:100%;
+    display:flex;
+    padding-left:2%;
+}
+
+.diaporama_photos{
+    width:100%;
+    padding-left:2%;
+}
+.bloc-photos_img{
+    width:40%;
+}
+
+            /*Section avec la carte*/
+.container{
+    width: 100%;
+}
+
+.row{
+    width: 100%;
+  
+}
+
+#main_screen{
+    display: flex;
+}
+            
 #map { 
-height: 400px; 
+height: 30vw; 
 width: 100%;
+margin: 1%;
+padding: 2%;
+}
+
+#aside_map{
+    width: 45%;
+    margin: 1%;
+    padding: 2%;
+    border: 2px solid black;
+}
+
+#aside_map__hidding_info{
+    display: none;
+}
+
+#aside-canvas{
+    width: 100%;
+    max-width: 100%;
+}
+#canvasZone{
+    width: 100%;
+    max-width: 100%;
+}
+
+#canvas{
+    display: none;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+#btnEnvoi{
+    display: none;
+}
+
+
+#errorMessage{
+    display: none;
+    color: red;
+}
+
+#reservedMessage{
+    display: none;
+}
+
+#footer{
+    display: none;
+    margin-left: 5%;
 }
