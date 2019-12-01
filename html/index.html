@@ -2,29 +2,14 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< Updated upstream
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css"/>
-    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/build/ol.js"></script>
-    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v6.0.1/css/ol.css">
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.0.1/build/ol.js"></script>
-    <title>Location de vélo</title>
-</head>
-<body>
-    <div id="map">
-       
-        
-    </div>
-    <script src="main.js"></script>
-
-=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Location de vélo</title>
 </head>
 <body>
@@ -76,33 +61,61 @@
             </section>
             <img class="chevrons" id="chevrons-right" src="../assets/chevron-right.png" />
         </header>
-        <main>
-            <section id="map"></section>
-            <aside>
-                <fieldset>
-                    <legend>Information de la station</legend>
-                    <p id="aside-infos--select-station">Veuillez selectionner une station pour commencer votre réservation</p>
-                    <p>Nom : <span id="station-name"></span></p>
-                    <p>Adresse : <span id="station-adress"></span></p>
-                    <p>Vélos disponibles : <span id="station-bikes"></span></p>
-                    <button>Réserver</button>
-                    <form action="" id="reservation-form">
-                        <div>
-                            <label for="last-name">Votre nom : </label>
-                            <input type="text" name="last-name" id="last-name" required>
-                        </div>
-                        <div>
-                            <label for="first-name">Votre prénom : </label>
-                            <input type="text" name="first-name" id="first-name" required>
-                        </div>
-                        <canvas id="canvas"></canvas>
-                        <div>
-                            <input type="submit" id="validation-btn" value="Je signe">
-                        </div>
-                    </form>
-                </fieldset>
-            </aside>
+        <main class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <section id="map"></section>
+                </div>
+                <div class="col-lg-4">
+                    <aside id="main-aside">
+                        <fieldset id="aside-infos">
+                            <legend>Information de la station</legend>
+                            <p id="aside-infos--select-station">Veuillez selectionner une station pour commencer votre réservation</p>
+                            <div id="aside_map__hidding_info">
+                                <p>Nom : <span id="station-name"></span></p>
+                                <p>Adresse : <span id="station-address"></span></p>
+                                <p>Vélos disponibles : <span id="station-bikes"></span></p>
+                                <div>
+                                    <p id="aside_info"></p>
+                                    <p id="reserved-messages"></p>
+                                    <p id="noBikes"></p>
+                                </div>
+                                <form action="" id="reservation-form">
+                                    <div>
+                                        <label for="last-name">Nom : </label>
+                                        <input type="text" name="last-name" id="last-name" size="20" maxlength="30" required>
+                                    </div>
+                                    <div>
+                                        <label for="first-name">Prénom : </label>
+                                        <input type="text" name="first-name" id="first-name" size="20" maxlength="30" required>
+                                    </div>
+                                    <button id="button_signature">Réserver</button>
+                                    <div id=aside-canvas>
+                                        <div id="canvasZone">
+                                            <canvas id="canvas" class='img-responsive' >Nous sommes désolé mais votre navigateur ne supporte pas Canvas.</canvas>
+                                        </div>
+                                    </div>
+                                    <input type="button" id="validation-btn" value="Je signe">
+                                    <div id="thankMessage">
+                                        <p>Merci à vous !</p>
+                                    </div>
+                                    <div id="errorMessage">
+                                        <p>Attention, veuillez remplir les champs 'nom', 'prénom', et signé dans le cadre ci-dessus.</p>
+                                    </div>
+                                </form>
+                            </div>
+                        </fieldset>
+                    </aside>
+                </div>
+            </div>
         </main>
+        <footer id="footer">
+            <p>Aucune réservation en cours.</p>
+            <div id="footer--reservation">
+                <p>Votre réservatioon a été enregisté ! Vous avez <span id="timeResa"></span> pour récuperer votre vélo.</p>
+                <p>Bonne route !</p>
+            </div>
+        </footer>
     </div>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -110,7 +123,11 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <script src="../js/slider.js"></script>
     <script src="../js/map.js"></script>
+    <script src="../js/stamp.js"></script>
+    <script src="../js/reservation.js"></script>
     <script src="../js/main.js"></script>
->>>>>>> Stashed changes
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

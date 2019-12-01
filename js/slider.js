@@ -20,7 +20,6 @@ const slider = {
                 slider.currentPosition = 0
             }
             slider.sliderContainer.style.marginLeft = `-${(slider.currentPosition * 100)}%`
-
     },
 
     next() {

@@ -1,0 +1,44 @@
+ map.markers.addEventListener("click",  map.afficherInfos)
+           
+           
+        }  
+        console.log("Oulala")
+    },
+
+    afficherInfos() {
+            document.getElementById("station-name").textContent = map.stations[station].name
+            console.log("tu me vois là ?")
+        
+    }
+
+
+     for(station = 0; station < map.stations.length; station++){
+            map.colorIcons(station, greenIcons, redIcons, yellowIcons)
+            map.markers = L.marker([map.stations[station].position.lat, map.stations[station].position.lng], {icon: map.iconColor}) ; //.addTo(myMap); Inutile avec les clusters
+            
+            var popup1 = L.popup()
+                .setContent(map.stations[station].name)
+                .onclick =  document.getElementById("station-name").textContent = map.stations[station].name
+
+            map.markers.bindPopup(popup1);
+            map.markers.onclick = map.afficherInfos
+        //On ajoute les marqueurs "stations" aux clusters
+            map.markerCluster.addLayer(map.markers);
+            map.myMap.addLayer(map.markerCluster);
+            console.log("Et de 1  " + map.stations[station].name);
+           // map.markers.bindPopup(map.stations[station].name).onclick = map.afficherInfos
+
+
+        isClosed(station){
+            document.getElementById("noBikes").textContent = "Désolé pas de vélos ou station fermée, veuillez sélectionner une autre station"
+            document.getElementById("thankMessage").style.display = "block"
+            reservation.btnEnvoi.removeEventListener("click",reservation.sendReservation)
+            console.log("c'est fermé !")
+        },
+        
+        isOpen(station){
+            document.getElementById("noBikes").innerHTML = ""
+            document.getElementById("thankMessage").style.display = "none"
+            reservation.btnEnvoi.addEventListener("click",reservation.sendReservation)  
+            console.log("c'est ouvert ! :D ")  
+    },
