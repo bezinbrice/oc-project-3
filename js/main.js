@@ -1,4 +1,5 @@
 
+<<<<<<< Updated upstream
 var map = new ol.Map({
     target: 'map',
     layers: [
@@ -20,3 +21,6 @@ req.open("GET", "https://api.jcdecaux.com/vls/v1/stations?contract={nantes}&apiK
 
 req.open("GET", "https://api.jcdecaux.com/vls/v3/stations?contract={nantes} HTTP/1.1");
 
+=======
+window.onload = reservation.hasReserved()
+>>>>>>> Stashed changes
