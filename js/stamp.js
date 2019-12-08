@@ -43,7 +43,7 @@ const stamp = {
         var offsetX=BB.left;
         var offsetY=BB.top;  
         if(window.scrollY){
-            offsetY= BB.top + window.scrollY  // On détermine la nouvelle position du canvas s'il y a un scrolling
+            offsetY= BB.top + window.scrollY
            }
         stamp.canvas.addEventListener('mousemove', function(e) {
             stamp.mouse.x =  e.pageX - offsetX;
